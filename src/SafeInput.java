@@ -51,13 +51,13 @@ public class SafeInput {
         System.out.print("***");
         //LeftSpaces
         for(int i = 0; i <= leftSpace; i++){
-            System.out.print("");
+            System.out.print(" ");
         }
         //Print Message
         System.out.print(msg);
         //RightSpaces
         for(int i = 0; i <= rightSpace; i++){
-            System.out.print("");
+            System.out.print(" ");
         }
         //Last 3 *s
         System.out.print("***");
