@@ -41,7 +41,7 @@ public class SafeInput {
 
 
         //Print Top Border
-        for(int i = 0; i <= 60; i++){
+        for(int i = 0; i <= 61; i++){
 
             System.out.print("*");
 
@@ -64,7 +64,7 @@ public class SafeInput {
         System.out.println("");
 
         //Bottom Border
-        for(int i = 0; i <= 60; i++){
+        for(int i = 0; i <= 61; i++){
 
             System.out.print("*");
 
@@ -72,6 +72,173 @@ public class SafeInput {
 
        return;
     }
+    //Code Provided - Returns a String
+    /**
+     *
+     * @param pipe a Scanner opened to read from System.in
+     * @param prompt prompt for the user
+     * @return a String response that is not zero length
+     */
+
+    public static String getNonZeroLenString(Scanner pipe, String prompt){
+
+        String retString = "";  // Set this to zero length. Loop runs until it isn’t
+        do {
+            System.out.print("\n" +prompt + ": "); // show prompt add space
+            retString = pipe.nextLine();
+        }
+        while(retString.length() == 0);
+
+        return retString;
+    }
+
+    //Returns an Integer
+    public static int getInt(Scanner pipe, String prompt){
+
+        boolean done = false;
+        String trash = "";
+        int i = 0;
+
+        do{
+            // Show Prompt
+            System.out.print("\n" +prompt + ": ");
+
+            //Check if integer
+            if (pipe.hasNextInt()) {
+                i = pipe.nextInt();
+                done = true;
+            }
+            //Otherwise trash & loop
+            else {
+                trash = pipe.nextLine();
+                System.out.println("Incorrect Input");
+            }
+
+        }
+        while (done == false);
+
+        return i;
+    }
+
+    //Returns a Double
+    public static double getDouble(Scanner pipe, String prompt){
+
+        boolean done = false;
+        String trash = "";
+        double d = 0;
+
+        do{
+            // Show Prompt
+            System.out.print("\n" +prompt + ": ");
+
+            //Check if double
+            if (pipe.hasNextDouble()) {
+                d = pipe.nextDouble();
+                done = true;
+            }
+            //Otherwise trash & loop
+            else {
+                trash = pipe.nextLine();
+                System.out.println("Incorrect Input");
+            }
+
+        }
+        while (done == false);
+
+        return d;
+    }
+
+    //Returns an Integer in a Range the User Inputs
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high){
+
+        boolean done = false;
+        String trash = "";
+        int ri = 0;
+
+        do{
+            //Show Prompt
+            System.out.print("\n" +prompt + ": ");
+
+            //Check if integer
+            if (pipe.hasNextInt()) {
+                ri = pipe.nextInt();
+
+                if (ri <= high && ri >= low){
+                    done = true;
+                }
+                else{
+                    System.out.println("Not in Range");
+                }
+            }
+            //Otherwise trash & loop
+            else {
+                trash = pipe.nextLine();
+                System.out.println("Incorrect Input");
+            }
+        }
+        while (done == false);
+
+        return ri;
+    }
+
+    //Returns a Double in a Range the User Inputs
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high){
+
+        boolean done = false;
+        String trash = "";
+        double rd = 0;
+
+        do{
+            //Show Prompt
+            System.out.print("\n" +prompt + ": ");
+
+            //Check if integer
+            if (pipe.hasNextDouble()) {
+                rd = pipe.nextDouble();
+
+                if (rd <= high && rd >= low){
+                    done = true;
+                }
+                else{
+                    System.out.println("Not in Range");
+                }
+            }
+            //Otherwise trash & loop
+            else {
+                trash = pipe.nextLine();
+                System.out.println("Incorrect Input");
+            }
+        }
+        while (done == false);
+
+        return rd;
+    }
+
+    //Returns Yes or No to a Prompt
+    public static boolean getYNConfirm(Scanner pipe, String prompt){
+        
+
+
+        //return boolean;
+    }
+
+    //Returns a String that matches a RegEx pattern
+    public static String getRegExString(Scanner pipe, String regEx){
+
+
+
+        //return string;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
