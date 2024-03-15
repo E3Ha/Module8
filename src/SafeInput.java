@@ -101,12 +101,13 @@ public class SafeInput {
 
         do{
             // Show Prompt
-            System.out.print("\n" +prompt + ": ");
+            System.out.print("\n" +prompt);
 
             //Check if integer
             if (pipe.hasNextInt()) {
                 i = pipe.nextInt();
                 done = true;
+                System.out.println();
             }
             //Otherwise trash & loop
             else {
@@ -129,16 +130,16 @@ public class SafeInput {
 
         do{
             // Show Prompt
-            System.out.print("\n" +prompt + ": ");
-
+            System.out.println("\n" +prompt);
             //Check if double
             if (pipe.hasNextDouble()) {
                 d = pipe.nextDouble();
                 done = true;
+                System.out.println();
             }
             //Otherwise trash & loop
             else {
-                trash = pipe.nextLine();
+                trash = pipe.next();
                 System.out.println("Incorrect Input");
             }
 
@@ -157,7 +158,7 @@ public class SafeInput {
 
         do{
             //Show Prompt
-            System.out.print("\n" +prompt + ": ");
+            System.out.print("\n" +prompt);
 
             //Check if integer
             if (pipe.hasNextInt()) {
@@ -190,7 +191,7 @@ public class SafeInput {
 
         do{
             //Show Prompt
-            System.out.print("\n" +prompt + ": ");
+            System.out.print("\n" +prompt);
 
             //Check if integer
             if (pipe.hasNextDouble()) {
@@ -216,20 +217,52 @@ public class SafeInput {
 
     //Returns Yes or No to a Prompt
     public static boolean getYNConfirm(Scanner pipe, String prompt){
-        
 
+        boolean y = false;
+        String trash = "";
+        boolean done = false;
 
-        //return boolean;
+        do {
+            //Show Prompt
+            System.out.print("\n" + prompt);
+            //Check if a String
+            if (pipe.hasNextLine()) {
+                trash = pipe.nextLine();
+                trash = trash.toLowerCase();
+                //Check if Yes or No
+                switch (trash) {
+                    case "y":
+                        y = true;
+                        done = true;
+                        break;
+                    case "n":
+                        done = true;
+                        break;
+                    default:
+                        System.out.println("Incorrect Input");
+                        break;
+                }
+
+            }
+            //Else - not a String
+            else {
+                trash = pipe.nextLine();
+                System.out.println("Incorrect Input");
+            }
+        }
+        while (done == false);
+
+        return y;
     }
-
+/*
     //Returns a String that matches a RegEx pattern
-    public static String getRegExString(Scanner pipe, String regEx){
+    public static String getRegExString(Scanner pipe, String prompt, String regEx){
 
-
+       //input.matches(regEx)
 
         //return string;
     }
-
+*/
 
 
 
