@@ -81,20 +81,17 @@ public class SafeInput {
      */
 
     public static String getNonZeroLenString(Scanner pipe, String prompt){
-
         String retString = "";  // Set this to zero length. Loop runs until it isn’t
         do {
             System.out.print("\n" +prompt + ": "); // show prompt add space
             retString = pipe.nextLine();
         }
         while(retString.length() == 0);
-
         return retString;
     }
 
     //Returns an Integer
     public static int getInt(Scanner pipe, String prompt){
-
         boolean done = false;
         String trash = "";
         int i = 0;
@@ -102,7 +99,6 @@ public class SafeInput {
         do{
             // Show Prompt
             System.out.print("\n" +prompt);
-
             //Check if integer
             if (pipe.hasNextInt()) {
                 i = pipe.nextInt();
@@ -117,13 +113,11 @@ public class SafeInput {
 
         }
         while (done == false);
-
         return i;
     }
 
     //Returns a Double
     public static double getDouble(Scanner pipe, String prompt){
-
         boolean done = false;
         String trash = "";
         double d = 0;
@@ -145,13 +139,11 @@ public class SafeInput {
 
         }
         while (done == false);
-
         return d;
     }
 
     //Returns an Integer in a Range the User Inputs
     public static int getRangedInt(Scanner pipe, String prompt, int low, int high){
-
         boolean done = false;
         String trash = "";
         int ri = 0;
@@ -159,11 +151,9 @@ public class SafeInput {
         do{
             //Show Prompt
             System.out.print("\n" +prompt);
-
             //Check if integer
             if (pipe.hasNextInt()) {
                 ri = pipe.nextInt();
-
                 if (ri <= high && ri >= low){
                     done = true;
                 }
@@ -178,13 +168,11 @@ public class SafeInput {
             }
         }
         while (done == false);
-
         return ri;
     }
 
     //Returns a Double in a Range the User Inputs
     public static double getRangedDouble(Scanner pipe, String prompt, double low, double high){
-
         boolean done = false;
         String trash = "";
         double rd = 0;
@@ -192,11 +180,9 @@ public class SafeInput {
         do{
             //Show Prompt
             System.out.print("\n" +prompt);
-
             //Check if integer
             if (pipe.hasNextDouble()) {
                 rd = pipe.nextDouble();
-
                 if (rd <= high && rd >= low){
                     done = true;
                 }
@@ -211,13 +197,11 @@ public class SafeInput {
             }
         }
         while (done == false);
-
         return rd;
     }
 
     //Returns Yes or No to a Prompt
     public static boolean getYNConfirm(Scanner pipe, String prompt){
-
         boolean y = false;
         String trash = "";
         boolean done = false;
@@ -242,7 +226,6 @@ public class SafeInput {
                         System.out.println("Incorrect Input");
                         break;
                 }
-
             }
             //Else - not a String
             else {
@@ -251,7 +234,6 @@ public class SafeInput {
             }
         }
         while (done == false);
-
         return y;
     }
 /*
