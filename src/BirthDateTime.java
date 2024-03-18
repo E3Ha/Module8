@@ -10,8 +10,8 @@ public class BirthDateTime {
         //use a switch to determine range allowed for days based on months
         switch (month){
             case 2:
-                //1-29
-                day = SafeInput.getRangedInt(scan, "Days: ", 1, 29);
+                //1-28
+                day = SafeInput.getRangedInt(scan, "Days: ", 1, 28);
                 break;
             case 4:
             case 6:

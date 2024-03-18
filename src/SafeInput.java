@@ -173,7 +173,7 @@ public class SafeInput {
             }
             //Otherwise trash & loop
             else {
-                trash = pipe.nextLine();
+                trash = pipe.next();
                 System.out.println("Incorrect Input");
             }
         }
@@ -206,7 +206,7 @@ public class SafeInput {
             }
             //Otherwise trash & loop
             else {
-                trash = pipe.nextLine();
+                trash = pipe.next();
                 System.out.println("Incorrect Input");
             }
         }
@@ -227,15 +227,15 @@ public class SafeInput {
             System.out.print("\n" + prompt);
             //Check if a String
             if (pipe.hasNextLine()) {
-                trash = pipe.nextLine();
+                trash = pipe.next();
                 trash = trash.toLowerCase();
                 //Check if Yes or No
                 switch (trash) {
                     case "y":
-                        y = true;
                         done = true;
                         break;
                     case "n":
+                        y = true;
                         done = true;
                         break;
                     default:
@@ -246,7 +246,7 @@ public class SafeInput {
             }
             //Else - not a String
             else {
-                trash = pipe.nextLine();
+                trash = pipe.next();
                 System.out.println("Incorrect Input");
             }
         }
@@ -258,9 +258,19 @@ public class SafeInput {
     //Returns a String that matches a RegEx pattern
     public static String getRegExString(Scanner pipe, String prompt, String regEx){
 
-       //input.matches(regEx)
+       input.matches(regEx)
+       boolean done = false;
 
-        //return string;
+        do {
+           //Show Prompt
+           System.out.print("\n" + prompt);
+
+           
+
+           }
+           while (done == false);
+
+       return string;
     }
 */
 
