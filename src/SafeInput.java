@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SafeInput {
 
@@ -236,26 +238,29 @@ public class SafeInput {
         while (done == false);
         return y;
     }
-/*
+
     //Returns a String that matches a RegEx pattern
     public static String getRegExString(Scanner pipe, String prompt, String regEx){
-
-       input.matches(regEx)
+       //converting string to regex
+       Pattern pattern = Pattern.compile(regEx);
        boolean done = false;
 
-        do {
-           //Show Prompt
-           System.out.print("\n" + prompt);
 
-           
-
-           }
-           while (done == false);
-
-       return string;
-    }
-*/
-
+       do {
+          //Show Prompt
+          System.out.println("\n" + prompt);
+          //collecting input
+          String input = pipe.nextLine();
+          //checking for match
+          Matcher matcher = pattern.matcher(input);
+          //return match found if match
+          if (matcher.find())
+              return "Match Found";
+          }
+          while (done == false);
+          //Unused
+          return "match not found";
+   }
 
 
 
@@ -271,6 +276,23 @@ public class SafeInput {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
